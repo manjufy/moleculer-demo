@@ -6,6 +6,7 @@ services:
     build:
       context: .
     image: moleculer-demo
+    container_name: moleculer-demo-api
     env_file: docker-compose.env
     environment:
       SERVICES: api
@@ -23,6 +24,20 @@ services:
     build:
       context: .
     image: moleculer-demo
+    container_name: moleculer-demo-greeter
+    env_file: docker-compose.env
+    environment:
+      SERVICES: greeter
+    depends_on:
+      - nats
+    networks:
+      - internal
+
+  greeterReplica:
+    build:
+      context: .
+    image: moleculer-demo
+    container_name: moleculer-demo-greeter-replica
     env_file: docker-compose.env
     environment:
       SERVICES: greeter
@@ -35,12 +50,24 @@ services:
     build:
       context: .
     image: moleculer-demo
+    container_name: moleculer-demo-products
     env_file: docker-compose.env
     environment:
       SERVICES: products
     depends_on:
       - mongo
       - nats
+    networks:
+      - internal
+
+  helper:
+    build:
+      context: .
+    image: moleculer-demo
+    container_name: moleculer-demo-helper
+    env_file: docker-compose.env
+    environment:
+      SERVICES: helper
     networks:
       - internal
 
