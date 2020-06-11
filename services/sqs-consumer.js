@@ -5,14 +5,14 @@ module.exports = {
 	name: "sqs-consumer",
 	started() {
 		AWS.config.update({
-			region: "..",
-			accessKeyId: "...",
-			secretAccessKey: "..."
+			region: "..", // TODO: Input your region
+			accessKeyId: "...", // TODO: input your AWS access key here
+			secretAccessKey: "..." // TODO: input your AWS secret key here
 		});
 
 		// sqs-consumer goes here
 		const app = Consumer.create({
-			queueUrl: "https://....",
+			queueUrl: "https://....", // TODO: Input your AWS SQS queue url here
 			handleMessage: async (message) => {
 				// do some work with `message`
 				console.log("Message111 ===>", message);
