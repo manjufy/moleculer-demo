@@ -38,8 +38,10 @@ module.exports = {
 				const payload = `Hello from Greeter@${this.broker.nodeID}`;
 				const number = await ctx.call("helper.random");
 				ctx.emit("hello.called", payload);
+
 				return {
-					payload, number
+					payload,
+					number
 				};
 			}
 		},
