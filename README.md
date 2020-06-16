@@ -41,6 +41,25 @@ In the terminal, try the following commands:
 - `npm run dc:up`: Start the stack with Docker Compose
 - `npm run dc:down`: Stop the stack with Docker Compose
 
+## Mongo DB
+
+https://developer.rackspace.com/blog/deploy-mongodb-as-a-docker-container/
+
+docker run -d -v /data/db/:/data/db --name mymongo mongo:4.0.4
+
+docker run -d -v /data/db/:/data/db -p 27017:27017/tcp --name mymongo mongo:4.0.4
+
+docker exec -it mymongo bash
+
+```
+show dbs
+use <dbname>
+show collections
+```
+
+Ref: https://medium.com/@r.heygate.dev/microservices-with-moleculer-js-c7e68803ec09
+
+
 ## References:
 
 https://github.com/moleculerjs/moleculer-addons/blob/master/packages/moleculer-bee-queue/examples/simple/index.js

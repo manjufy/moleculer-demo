@@ -57,6 +57,7 @@ module.exports = function(collection) {
 	};
 
 	if (process.env.MONGO_URI) {
+		console.log("Yes Baby we are here....");
 		// Mongo adapter
 		const MongoAdapter = require("moleculer-db-adapter-mongo");
 
